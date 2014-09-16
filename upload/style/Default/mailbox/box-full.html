@@ -1,0 +1,33 @@
+<div class="form-block">
+	<div class="block-header"><?=self::path($box)?></div>
+	<div class="block-line"><?=MB_INFO?></div>
+	<?=$this->progress(MB_MESSAGES, $this->num_messages)?>
+	<form method="post" name="action">
+		<table class="mb-list">
+			<thead>
+				<tr>
+					<td id="topic">Тема</td>
+					<td id="from">От кого</td>
+					<td id="to">Кому</td>
+					<td id="date">Дата</td>
+					<td id="action"><input name="check" type="checkbox" onClick="CheckAll()"></td>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<?=$messages?>
+			</tbody>
+		</table>
+		<br>
+		<div class="input-prepend" style="float:right;">
+			<input name="value" type="submit" class="btn" id="prependedInput" value="С отмеченными">
+			<select name="action" class="input-medium">
+				<option value="1">Удалить</option>
+				<option value="2">Переместить</option>
+			</select>
+		</div>
+	</form>
+	<br clear="all">
+	<?=$pagination?>
+
+</div>

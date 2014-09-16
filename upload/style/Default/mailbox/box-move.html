@@ -1,0 +1,20 @@
+<div class="form-block">
+	<div class="block-header"><?=self::path($box)?></div>
+	<div class="block-line"><?=MB_INFO?></div>
+
+	<form method="post" name="action">
+		<input type="hidden" name="item" value="<?=$imp_array?>">
+		<input type="hidden" name="action" value="2">
+		<div class="input-prepend">
+			<input name="value" type="submit" class="btn" id="prependedInput" value="Переместить в папку">
+			<select name="tobox" class="input-medium">
+				<option value="-1">Входящие</option>
+				<option value="-2">Исходящие</option>
+				<option value="-3">Корзина</option>
+				<option value="-4">Черновики</option>
+				<?=$boxs?>
+			</select>
+		</div>
+	</form>
+
+</div>

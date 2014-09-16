@@ -1,0 +1,13 @@
+<div class="form-block">
+	<div class="block-header"><?=self::path('Главная')?></div>
+	<div class="block-line"><?=MB_INFO?></div>
+	<a href="<?=MB_URL?>send" class="mb-folder send">Написать</a>
+	<a href="<?=MB_URL?>inbox" class="mb-folder inbox">Входящие</a>
+	<a href="<?=MB_URL?>outbox" class="mb-folder outbox">Исходящие</a>
+	<a href="<?=MB_URL?>drafts" class="mb-folder drafts">Черновики</a>
+	<a href="<?=MB_URL?>trash" class="mb-folder trash">Корзина</a>
+	<? if(MB_LVL>=15) :?><a href="<?=MB_URL?>settings" class="mb-folder settings">Настройки</a><? endif; ?>
+	<a href="<?=MB_URL?>new" class="mb-folder new-box">Управление папками</a>
+	<br clear="all">
+	<?=$folders?>
+</div>

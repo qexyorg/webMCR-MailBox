@@ -1,0 +1,61 @@
+.mb-folder {
+	float: left;
+	height: 120px;
+	width: 25%;
+	text-align: center;
+	background: url(../img/other-folder.png);
+	opacity: 1;
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	-webkit-transition: opacity 0.5s ease, box-shadow 0.5s ease;
+	-moz-transition: opacity 0.5s ease, box-shadow 0.5s ease;
+	-o-transition: opacity 0.5s ease, box-shadow 0.5s ease;
+	-transition: opacity 0.5s ease, box-shadow 0.5s ease;
+}
+.mb-folder:hover {
+	opacity: 0.5;
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5;
+}
+
+.send {		background: url(../img/send.png)	}
+.drafts {	background: url(../img/drafts.png)	}
+.inbox {	background: url(../img/inbox.png)	}
+.outbox {	background: url(../img/outbox.png)	}
+.trash {	background: url(../img/trash.png)	}
+.settings {	background: url(../img/settings.png)}
+.new-box {	background: url(../img/new.png)		}
+
+.send, .drafts, .inbox, .mb-folder, .outbox, .trash, .new-box { background-position: center center; background-repeat: no-repeat; }
+
+.mb-list { width: 100%; }
+.mb-list td { padding: 10px; }
+.mb-list thead { font-weight: bold; border-bottom: 1px solid #ddd; }
+.mb-list tbody .read { font-style: italic; }
+.mb-list tbody .read:before { content: url(../img/read.png); padding-right: 5px; }
+.mb-list tbody .unread { font-weight: bold; }
+.mb-list tbody .unread:before { content: url(../img/unread.png); padding-right: 5px; }
+
+.mb-list #topic { width: 30%; }
+.mb-list #from { width: 30%; }
+.mb-list #date { width: 30%; }
+.mb-list #action { width: 10%; }
+
+.mb_block_user{width:20%; background:#fff; float:left; text-align: center; padding: 10px 0;}
+
+.mb_block_msg{width:75%; background:#fff; float:right; min-height: 130px; margin-bottom: 5px; padding: 10px;}
+.mb_block_msg > p{/*padding: 10px; border: 1px solid #ddd;*/}
+.quote{width:80%; border: 1px solid #ddd; margin: 0px auto; padding: 10px; background: #f6f6f6; clear: none;}
+
+.mb_block_head{width:99%; clear:both; background:#fff; padding: 5px; margin-bottom: 5px;}
+
+.mb_block_foot{width:99%; clear:both; background:#fff; padding: 5px; text-align: right; display: inline-block;}
+.mb_block_foot > form{margin: 0px !important;}
+
+.mb_block_btn{float:right; display: inline; padding-left: 3px; margin: 1px;}
+
+.mb_cont{word-wrap: break-word;}
+
+.progress .bar .inside { position: absolute; width: 720px; margin: 0 auto; color: #000; }
+
+.mb_copy { text-align:right; background:#F5F5F5; border: 1px solid #E5E5E5; padding: 5px; }

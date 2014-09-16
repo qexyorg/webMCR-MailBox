@@ -1,0 +1,24 @@
+<div class="form-block">
+	<div class="block-header"><?=self::path('Новое сообщение')?></div>
+	<div class="block-line"><?=MB_INFO?></div>
+
+	<form method="post" action="">
+		<div class="input-append">
+			<input name="max_folders" type="text" value="<?=$mbcfg['max_folders']?>" required>
+			<span class="add-on" style="width:300px;">Максимум папок</span>
+		</div>
+		
+		<div class="input-append">
+			<input name="max_mof" type="text" value="<?=$mbcfg['max_mof']?>" required>
+			<span class="add-on" style="width:300px;">Максимум сообщений в каждой папке</span>
+		</div>
+		
+		<div class="input-append">
+			<input name="rop" type="text" value="<?=$mbcfg['rop']?>" required>
+			<span class="add-on" style="width:300px;">Результатов на странице</span>
+		</div>
+
+		<p><input name="submit" type="submit" class="btn" value="Сохранить"></p>
+	</form>
+
+</div>

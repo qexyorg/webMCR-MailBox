@@ -1,0 +1,37 @@
+AddDefaultCharset UTF-8
+DefaultLanguage ru-RU
+
+Options -Indexes
+
+php_flag register_globals off
+
+<IfModule mod_rewrite.c>
+
+    SetEnv HTTP_MOD_REWRITE On
+
+RewriteEngine on
+
+RewriteRule ^news/([^/]+)/?$ index.php?id=$1 [L,NE]
+RewriteRule ^category/([^/]+)/?$ index.php?cid=$1 [L,NE]
+RewriteRule ^list/([^/]+)/?$ index.php?l=$1 [L,NE]
+RewriteRule ^control/([^/]+)/?$ index.php?mode=control&do=$1 [L,NE]
+
+RewriteRule ^get/([^/]+)/?$ action.php?method=download&file=$1 [L,NE]
+
+RewriteRule ^go/([^/]+)/?$ index.php?mode=$1 [L,NE]
+
+RewriteRule ^go/mailbox/([^/]+)/?$ index.php?mode=mailbox&do=$1 [L,NE]
+RewriteRule ^go/mailbox/message/([^/]+)/?$ index.php?mode=mailbox&do=message&mid=$1 [L,NE]
+RewriteRule ^go/mailbox/([^/]+)/([0-9]+)/?$ index.php?mode=mailbox&do=$1&pid=$2 [L,NE]
+
+
+RewriteRule  ^authenticate$ MineCraft/auth16x.php [L]
+RewriteRule  ^invalidate$ MineCraft/invalidate16x.php [L]
+RewriteRule  ^refresh$ MineCraft/refresh16x.php [L]
+RewriteRule  ^game/joinserver.jsp MineCraft/joinserver.php [L,NE]
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?mode=404&route=%{REQUEST_URI}
+
+</IfModule>
