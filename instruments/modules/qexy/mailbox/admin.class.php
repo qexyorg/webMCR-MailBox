@@ -179,7 +179,7 @@ class module{
 	private function icons_remove(){ // POST
 		$ids = $this->api->filter_array_integer(@$_POST['act']);
 
-		$check = array_intersect($ids, array(1,2,3,4,5));
+		$check = array_intersect($ids, array(1,2,3,4));
 
 		if(!empty($check)){
 			$this->api->notify("Вы не можете удалять системные иконки", "&do=admin&op=icons", "Ошибка!", 3);
@@ -196,7 +196,7 @@ class module{
 			@unlink(MCR_ROOT.'qx_upload/mailbox/'.$ar['img'].'-exist'.$ar['ext']);
 		}
 
-		$update = $this->db->query("UPDATE `qx_mb_folders` SET icon='5' WHERE icon IN ($ids)");
+		$update = $this->db->query("UPDATE `qx_mb_folders` SET icon='4' WHERE icon IN ($ids)");
 		
 		if(!$update){ $this->api->notify("Произошла ошибка базы данных admin #".__LINE__, "&do=admin&op=icons", "Внимание!", 3); }
 

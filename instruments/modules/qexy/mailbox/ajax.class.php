@@ -48,7 +48,7 @@ class module{
 	}
 
 	private function get_folders(){
-		$query = $this->db->query("SELECT id, title FROM `qx_mb_folders` WHERE `id`!='3' AND (uid='{$this->user->id}' OR `system`='1')");
+		$query = $this->db->query("SELECT id, title FROM `qx_mb_folders` WHERE uid='{$this->user->id}' OR `system`='1'");
 
 		if(!$query || $this->db->num_rows($query)<=0){ $this->reply("Empty", true); }
 

@@ -490,7 +490,7 @@ class module{
 									FROM `qx_mb_topics_links` AS `l`
 									INNER JOIN `qx_mb_topics` AS `t`
 										ON `t`.id=`l`.`tid`
-									WHERE `l`.id IN ($ids) AND `l`.uid='{$this->user->id}' AND `l`.`fid`!='4'");
+									WHERE `l`.id IN ($ids) AND `l`.uid='{$this->user->id}' AND `l`.`fid`!='3'");
 
 		if(!$query || $this->db->num_rows($query)<=0){ $this->api->notify("Доступ запрещен!", "403", 3); }
 
@@ -502,7 +502,7 @@ class module{
 
 		$id_row = implode(', ', $id_row);
 
-		$update = $this->db->query("UPDATE `qx_mb_topics_links` SET `fid`='4' WHERE id IN ($id_row)");
+		$update = $this->db->query("UPDATE `qx_mb_topics_links` SET `fid`='3' WHERE id IN ($id_row)");
 		if(!$update){ $this->api->notify("Произошла ошибка базы данных topics #".__LINE__, "", "Внимание!", 3); }
 		
 		if($this->db->get_affected_rows()<=0){ $this->api->notify("Переписки не были удалены", "", "Внимание!", 4); }

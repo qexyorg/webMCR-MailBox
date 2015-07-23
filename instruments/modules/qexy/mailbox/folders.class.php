@@ -175,7 +175,7 @@ LIMIT $start, $end");
 	private function folder_remove(){ // POST
 
 		$ids = $this->api->filter_array_integer(@$_POST['act']);
-		$check = array_intersect($ids, array(1,2,3,4));
+		$check = array_intersect($ids, array(1,2,3));
 
 		if(!empty($check)){
 			$this->api->notify("Вы не можете удалять системные папки", "&do=folders&op=control", "Ошибка!", 3);
@@ -183,7 +183,7 @@ LIMIT $start, $end");
 
 		$ids = implode(', ', $ids);
 
-		$update = $this->db->query("UPDATE `qx_mb_topics_links` SET fid='4' WHERE id IN ($ids) AND uid='{$this->user->id}'");
+		$update = $this->db->query("UPDATE `qx_mb_topics_links` SET fid='3' WHERE id IN ($ids) AND uid='{$this->user->id}'");
 		
 		if(!$update){ $this->api->notify("Произошла ошибка базы данных folders #".__LINE__, "&do=folders&op=control", "Внимание!", 3); }
 

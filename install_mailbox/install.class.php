@@ -136,17 +136,15 @@ class module{
 			$create6 = $this->db->query("INSERT INTO `qx_mb_folders` (`id`, `uniq`, `title`, `uid`, `icon`, `system`, `data`) VALUES
 (1, 'inbox', 'Входящие', 0, 1, 1, '{\"date_create\":1,\"date_update\":1}'),
 (2, 'outbox', 'Исходящие', 0, 2, 1, '{\"date_create\":1,\"date_update\":1}'),
-(3, 'drafts', 'Черновики', 0, 3, 1, '{\"date_create\":1,\"date_update\":1}'),
-(4, 'trash', 'Корзина', 0, 4, 1, '{\"date_create\":1,\"date_update\":1}');");
+(3, 'trash', 'Корзина', 0, 4, 1, '{\"date_create\":1,\"date_update\":1}');");
 
 			if(!$create6){ $this->api->notify("Ошибка установки #".__LINE__, "&do=install", "Ошибка!", 3); }
 
 			$create7 = $this->db->query("INSERT INTO `qx_mb_icons` (`id`, `img`, `ext`, `system`) VALUES
 (1, 'inbox', '.png', 1),
 (2, 'outbox', '.png', 1),
-(3, 'drafts', '.png', 1),
-(4, 'trash', '.png', 1),
-(5, 'folder', '.png', 1);");
+(3, 'trash', '.png', 1),
+(4, 'folder', '.png', 1);");
 
 			if(!$create7){ $this->api->notify("Ошибка установки #".__LINE__, "&do=install", "Ошибка!", 3); }
 
@@ -218,16 +216,6 @@ class module{
 				$menu_items[0]['qexy_mb_outbox'] = array (
 					'name' => 'Исходящие',
 					'url' => '?mode=mailbox&do=topics&op=folder&fid=outbox',
-					'parent_id' => 'qexy_mb',
-					'lvl' => 1,
-					'permission' => -1,
-					'active' => false,
-					'inner_html' => '',
-				);
-
-				$menu_items[0]['qexy_mb_drafts'] = array (
-					'name' => 'Черновики',
-					'url' => '?mode=mailbox&do=topics&op=folder&fid=drafts',
 					'parent_id' => 'qexy_mb',
 					'lvl' => 1,
 					'permission' => -1,
