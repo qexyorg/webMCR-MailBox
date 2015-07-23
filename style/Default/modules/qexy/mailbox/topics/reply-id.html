@@ -1,0 +1,25 @@
+<div class="topic reply row-fluid" id="reply-id-<?php echo $data['ID']; ?>">
+	<div class="topic-info span2">
+		<a href="<?php echo $data['LOGIN_URL']; ?>" class="thumbnail">
+			<img src="<?php echo BASE_URL; ?>skin.php?user_id=<?php echo $data['UID']; ?>&mini=true&refresh=<?php echo mt_rand(1000, 9999); ?>" alt="IMG" />
+		</a>
+			
+		<div class="topic-p-group">
+			<b><a href="#" class="reply-to"><?php echo $data['LOGIN']; ?></a></b>
+		</div>
+	</div>
+
+	<div class="topic-body span10">
+		<div class="topic-text"><?php echo $data['TEXT']; ?></div>
+	</div>
+
+	<div class="cleaner"></div>
+
+	<div class="reply-footer span12">
+		<div class="footer-info">Добавлено: <?php echo $data['DATE_CREATE']; ?></div>
+		<div class="footer-content">
+			<a href="#" class="btn reply-load" id="<?php echo $data['ID']; ?>">Ответить</a>
+			<a href="#permaLinkMessage" role="button" class="btn permaLinkMsg" id="<?php echo $data['ID']; ?>" data-toggle="modal"><i class="icon-share"></i></a>
+		</div>
+	</div>
+</div>

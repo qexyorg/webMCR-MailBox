@@ -1,0 +1,8 @@
+<div class="reply-form">
+	<form method="POST">
+		<?php echo $this->bb_panel('.bb-textarea', 'target-panel'); ?>
+		<input type="hidden" name="<?php echo $data['API_SECURITY']; ?>" value="<?php echo $data['API_SET']; ?>">
+		<p><textarea name="text" class="span12 bb-textarea" rows="6" required placeholder="Текст ответа"></textarea></p>
+		<p class="text-center"><button class="btn" name="action" value="reply" type="submit">Отправить</button></p>
+	</form>
+</div>

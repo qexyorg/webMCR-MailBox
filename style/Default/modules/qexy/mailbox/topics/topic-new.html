@@ -1,0 +1,33 @@
+<div class="mailbox-messages-new">
+	<form class="form-horizontal" method="POST">
+		<input type="hidden" name="<?php echo $data['API_SECURITY']; ?>" value="<?php echo $data['API_SET']; ?>">
+		<div class="control-group">
+			<label class="control-label" for="inputTo">Кому</label>
+			<div class="controls">
+				<input name="login" id="data-get_login" class="span8" type="text" id="inputTo" placeholder="Начните вводить логин" required>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="inputTopic">Тема</label>
+			<div class="controls">
+				<input name="topic" class="span8" type="text" id="inputTopic" placeholder="Тема переписки" required>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="inputTopic">Текст сообщения</label>
+			<div class="controls">
+				<?php echo $this->bb_panel(); ?>
+				<textarea name="text" class="bb-textarea span12" rows="10" required placeholder="Текст сообщения"></textarea>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<button type="submit" name="send" value="true" class="btn">Отправить</button>
+				<button type="submit" name="save" value="true" class="btn">Сохранить</button>
+			</div>
+		</div>
+	</form>
+</div>

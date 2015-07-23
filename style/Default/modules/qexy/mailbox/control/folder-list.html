@@ -1,0 +1,32 @@
+<form class="mailbox-control" method="post">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Название</th>
+				<th>Ситемная</th>
+				<th>Действие</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php echo $data['CONTENT']; ?>
+		</tbody>
+	</table>
+
+	<?php echo $data['PAGINATION']; ?>
+
+	<div class="form-actions form-inline text-right">
+		<a href="<?php echo MOD_URL; ?>&do=folders&op=add_folder" class="btn btn-primary"><i class="icon-folder-open icon-white"></i> Новая папка</a>
+		<div class="input-prepend input-append">
+			<button class="btn" type="submit">С отмеченными</button>
+			<select name="action" class="span6" data-edit-url="&do=folders&op=edit_folder&fid=">
+				<option value="0" disabled selected>Действие</option>
+				<option value="edit">Редактировать</option>
+				<option value="remove">Удалить</option>
+			</select>
+			<span class="add-on"><label class="checkbox"><input type="checkbox" class="checkall"></label></span>
+		</div>
+	</div>
+
+	<input type="hidden" name="<?php echo $data['API_SECURITY']; ?>" value="<?php echo $data['API_SET']; ?>">
+</form>

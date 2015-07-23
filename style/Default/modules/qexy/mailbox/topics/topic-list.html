@@ -1,0 +1,56 @@
+<form class="mailbox-messages" method="post">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>Тема</th>
+				<th>От кого</th>
+				<th>Кому</th>
+				<th>Дата</th>
+				<th>Действие</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<?php echo $data['CONTENT']; ?>
+		</tbody>
+	</table>
+
+	<?php echo $data['PAGINATION']; ?>
+
+	<div class="form-actions form-inline text-right">
+		<a href="<?php echo MOD_URL; ?>&do=topics&op=new" class="btn btn-primary"><i class="icon-envelope icon-white"></i> Новое сообщение</a>
+		<div class="input-prepend input-append">
+			<button class="btn" type="submit">С отмеченными</button>
+			<select name="action" class="span6">
+				<option value="0" disabled selected>Действие</option>
+				<option value="move">Переместить</option>
+				<option value="close">Закрыть</option>
+				<option value="remove">Удалить</option>
+			</select>
+			<span class="add-on"><label class="checkbox"><input type="checkbox" class="checkall"></label></span>
+		</div>
+	</div>
+ 
+	<!-- Modal -->
+	<div id="get_move" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Перемещение сообщений</h3>
+		</div>
+		<div class="modal-body">
+			<p><div class="alert">Выберите папку в которую хотите переместить выбранные сообщения.</div></p>
+
+			<p class="text-center">
+				<select name="move_in_folder">
+					<option>Loading...</option>
+				</select>
+			</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" id="accept_move">Переместить</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+		</div>
+	</div>
+
+	<input type="hidden" name="<?php echo $data['API_SECURITY']; ?>" value="<?php echo $data['API_SET']; ?>">
+</form>

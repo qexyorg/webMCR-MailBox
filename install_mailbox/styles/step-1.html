@@ -1,0 +1,74 @@
+<div class="mailbox-install">
+	<h4>Установка - Шаг 1</h4>
+	<?php echo $data['WRITE_MENU']; ?>
+	<?php echo $data['WRITE_CONFIGS']; ?>
+	<?php echo $data['WRITE_CFG']; ?>
+	<div class="mailbox-settings">
+		<form method="post">
+			<table class="table table-hover table-bordered">
+
+				<tbody>
+					<tr>
+						<td class="name">Название модуля
+							<div class="desc">- Название модуля MailBox (Отображается в заголовке страницы и хлебных крошках)</div>
+						</td>
+						<td class="inputs"><input type="text" name="title" placeholder="Название" value="<?php echo $this->cfg['title']; ?>" required></td>
+					</tr>
+
+					<tr>
+						<td class="name">Использовать систему пользователей
+							<div class="desc">- Функция добавляет дополнительный функционал при использовании модуля "<a href="https://github.com/qexyorg/webMCR-User-System" target="_blank">User System</a>"</div>
+						</td>
+						<td class="inputs">
+							<select name="use_us">
+								<option value="0">Нет</option>
+								<option value="1">Да</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="name">Подтверждение по E-Mail
+							<div class="desc">- При получении новых писем, пользователь будет получать оповещение на свой E-Mail</div>
+						</td>
+						<td class="inputs">
+							<select name="use_email">
+								<option value="0">Нет</option>
+								<option value="1">Да</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="name">SSL для почтового сервера
+							<div class="desc">- При использовании SSL на SMTP сервере, необходимо включить данную настройку</div>
+						</td>
+						<td class="inputs">
+							<select name="use_email_ssl">
+								<option value="0">Нет</option>
+								<option value="1">Да</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="name">Максимальное число папок
+							<div class="desc">- Максимально допустимое кол-во папок, создаваемых пользователем(без учета системных)</div>
+						</td>
+						<td class="inputs">
+							<input type="text" name="max_folders" value="<?php echo $this->cfg['max_folders']; ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<td class="submits" colspan="2">
+							<input type="submit" class="btn btn-primary" name="submit" value="Далее">
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</form>
+	</div>
+
+</div>

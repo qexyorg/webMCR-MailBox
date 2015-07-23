@@ -1,0 +1,6 @@
+<tr>
+	<td><?php echo $data['ID']; ?></td>
+	<td><a href="<?php echo MOD_URL; ?>&do=topics&op=folder&fid=<?php echo $data['UNIQ']; ?>"><?php echo $data['TITLE']; ?></a></td>
+	<td><?php echo $data['SYSTEM']; ?></td>
+	<td class="action"><p class="text-right"><input type="checkbox" class="chkd" name="act[]" value="<?php echo $data['FID']; ?>"></p></td>
+</tr>

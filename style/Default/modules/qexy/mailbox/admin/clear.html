@@ -1,0 +1,17 @@
+<div class="panel-clear">
+	<div class="alert alert-block">
+		<b>Внимание!</b>
+		<p>Очистка пользователя приведет к безвозвратному удалению всех его переписок и ответов!</p>
+	</div>
+	<br>
+	<form class="form-horizontal" method="POST">
+		<div class="control-group">
+			<label class="control-label" for="data-get_login">Логин</label>
+			<div class="controls">
+				<input type="text" name="login" class="span8" id="data-get_login" placeholder="Начните вводить текст" required>
+			</div>
+		</div>
+		<input type="hidden" name="<?php echo $data['API_SECURITY']; ?>" value="<?php echo $data['API_SET']; ?>">
+		<p class="text-center"><button type="submit" class="btn">Очистить</button></p>
+	</form>
+</div>

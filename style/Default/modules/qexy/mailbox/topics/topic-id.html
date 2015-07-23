@@ -1,0 +1,13 @@
+<tr class="<?php echo $data['IS_READ']; ?>">
+	<td>
+		<?php echo $data['CLOSED']; ?> <a href="<?php echo MOD_URL; ?>&do=topics&op=view&tid=<?php echo $data['ID']; ?>"><?php echo $data["TOPIC"]; ?></a>
+	</td>
+
+	<td><?php echo $data["LOGIN_URL_FROM"]; ?></td>
+
+	<td><?php echo $data["LOGIN_URL_TO"]; ?></td>
+
+	<td><?php echo $data["DATE_CREATE"]; ?></td>
+
+	<td class="action"><p class="text-right"><input type="checkbox" class="chkd" name="act[]" value="<?php echo $data['ID']; ?>"></p></td>
+</tr>

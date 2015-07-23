@@ -1,0 +1,115 @@
+<div class="main-settings">
+	<form method="post">
+		<table class="table table-hover table-bordered">
+
+			<tbody>
+				<tr>
+					<td class="name">Название
+						<div class="desc">- Название модуля (Отображается в заголовке страницы и хлебных крошках)</div>
+					</td>
+					<td class="inputs"><input type="text" name="title" placeholder="Название" value="<?php echo $this->cfg['title']; ?>" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Уровень доступа к MailBox
+						<div class="desc">- Минимальный уровень доступа к MailBox</div>
+					</td>
+					<td class="inputs"><input type="text" name="lvl_access" placeholder="Число" value="<?php echo $this->cfg['lvl_access']; ?>" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Уровень доступа к ПУ MailBox
+						<div class="desc">- Минимальный уровень доступа к панели управления статическими страницами</div>
+					</td>
+					<td class="inputs"><input type="text" name="lvl_admin" placeholder="Число" value="<?php echo $this->cfg['lvl_admin']; ?>" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Максимальное число папок
+						<div class="desc">- Максимальное кол-во папок, которые может создать пользователь (без учета системных)</div>
+					</td>
+					<td class="inputs"><input type="text" name="max_folders" placeholder="Число" value="<?php echo $this->cfg['max_folders']; ?>" pattern="^(\d+)$" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Использовать систему пользователей
+						<div class="desc">- Совместимость с модулем <b><a href="https://github.com/qexyorg/webMCR-User-System" target="_blank">User System</a></b>, которая подсвечивает выводимых пользователей, ссылкой на их профиль</div>
+					</td>
+					<td class="inputs">
+						<select name="use_us">
+							<option value="0">Нет</option>
+							<option value="1" <?php echo $data['USE_US']; ?>>Да</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="name">Использовать E-Mail оповещения
+						<div class="desc">- При получении новых непрочитанных сообщений, пользователю будет отправлено E-Mail сообщение</div>
+					</td>
+					<td class="inputs">
+						<select name="use_email">
+							<option value="0">Нет</option>
+							<option value="1" <?php echo $data['USE_EMAIL']; ?>>Да</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="name">Использовать SSL для SMTP
+						<div class="desc">- Если почтовый SMTP сервер использует SSL соединение, то необходимо включить данную настройку. Остальные настройки <a href="<?php echo BASE_URL; ?>control/constants/">тут</a></div>
+					</td>
+					<td class="inputs">
+						<select name="use_email_ssl">
+							<option value="0">Нет</option>
+							<option value="1" <?php echo $data['USE_EMAIL_SSL']; ?>>Да</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="name">Папок на страницу
+						<div class="desc">- Кол-во выводимых папок на одну страницу</div>
+					</td>
+					<td class="inputs"><input type="text" name="rop_folders" placeholder="Число" value="<?php echo $this->cfg['rop_folders']; ?>" pattern="^(\d+)$" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Переписок на страницу
+						<div class="desc">- Кол-во выводимых переписок на одну страницу</div>
+					</td>
+					<td class="inputs"><input type="text" name="rop_topics" placeholder="Число" value="<?php echo $this->cfg['rop_topics']; ?>" pattern="^(\d+)$" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Ответов на страницу
+						<div class="desc">- Кол-во выводимых ответов в переписке на одну страницу</div>
+					</td>
+					<td class="inputs"><input type="text" name="rop_reply" placeholder="Число" value="<?php echo $this->cfg['rop_reply']; ?>" pattern="^(\d+)$" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Папок на странице управления
+						<div class="desc">- Кол-во выводимых папок на одну страницу в пользовательском управлении папками</div>
+					</td>
+					<td class="inputs"><input type="text" name="rop_control" placeholder="Число" value="<?php echo $this->cfg['rop_control']; ?>" pattern="^(\d+)$" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Иконок на странице ПУ
+						<div class="desc">- Кол-во выводимых иконок на одну страницу в панели управления</div>
+					</td>
+					<td class="inputs"><input type="text" name="rop_icons" placeholder="Число" value="<?php echo $this->cfg['rop_icons']; ?>" pattern="^(\d+)$" required></td>
+				</tr>
+
+				<tr>
+					<td class="submits" colspan="2">
+						<input type="hidden" name="<?php echo $data['API_SECURITY']; ?>" value="<?php echo $data['API_SET']; ?>">
+						<input type="submit" class="btn btn-primary" name="submit" value="Сохранить">
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</form>
+</div>

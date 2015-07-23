@@ -1,0 +1,31 @@
+<form class="form-horizontal" method="POST" enctype="multipart/form-data">
+	<div class="alert">
+		<p>- Можно загружать только изображения форматов: <?php echo $data['FORMATS']; ?></p>
+		<p>- Изображения должны быть одинаковых форматов</p>
+	</div>
+
+	<br>
+
+	<div class="control-group">
+		<label class="control-label" for="inputIcon">Изображение пустой папки</label>
+		<div class="controls">
+			<input type="file" name="empty" required>
+			<p><?php echo $data['IMG_EMPTY']; ?></p>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="inputIcon">Изображение не пустой папки</label>
+		<div class="controls">
+			<input type="file" name="exist" required>
+			<p><?php echo $data['IMG_EXIST']; ?></p>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<button type="submit" name="submit" class="btn"><?php echo $data['BTN']; ?></button>
+		</div>
+	</div>
+	<input type="hidden" name="<?php echo $data['API_SECURITY']; ?>" value="<?php echo $data['API_SET']; ?>">
+</form>

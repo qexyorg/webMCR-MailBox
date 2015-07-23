@@ -1,0 +1,79 @@
+.mailbox-global .menu { margin: 5px; display: block; text-align: right; }
+
+.mailbox-global .cleaner { clear: both; }
+.mailbox-global .alert { margin-bottom: 0px; }
+
+.mailbox-global .form-actions { background-color: #ededed; }
+.mailbox-global .form-actions > .btn,
+.mailbox-global .form-actions > .input-prepend { margin: 3px; margin-right: 0px; }
+.mailbox-global .form-actions > .input-prepend .checkbox { margin-top: -3px; margin-right: -3px; }
+
+.mailbox-global td.action { padding-right: 15px; }
+
+.mailbox-global .mailbox-messages tbody tr td,
+.mailbox-global .mailbox-control tbody tr td { vertical-align: middle; }
+
+.mailbox-global .mailbox-settings .table { font-family: verdana; background: #fff; }
+.mailbox-global .mailbox-settings .table .name { font-weight: bold; color: #555; width: 60%; }
+.mailbox-global .mailbox-settings .table .desc { font-weight: normal; color: #999; font-size: 11px; }
+.mailbox-global .mailbox-settings .table .submits { text-align: right; }
+
+.mailbox-global .mailbox-folders > ul { margin: 0px; padding: 0px; }
+.mailbox-global .mailbox-folders > ul > li { margin: 0px; margin-bottom: 10px; padding: 0px; list-style: none; text-align: center; display: inline-block; width: 25%; vertical-align: top; }
+.mailbox-global .mailbox-folders > ul > li > .folder > a { margin: 5px; text-decoration: none; }
+.mailbox-global .mailbox-folders > ul > li > .folder { position: relative; }
+.mailbox-global .mailbox-folders > ul > li > .folder .unread {
+	position: absolute;
+	top:0px;
+	right:0px;
+	margin-top: -7px;
+	margin-right: -1px;
+}
+
+.mailbox-global .mailbox-folders > ul > li > .folder .unread > a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.mailbox-global .row-icon { display: inline-block; }
+
+.mailbox-topic-full > .topic { border-bottom: 1px solid #ddd; }
+.mailbox-topic-full > .topic.reply { padding-bottom: 10px; margin-bottom: 20px; }
+
+.mailbox-topic-full > .topic > .row-fluid { margin-bottom: 20px; }
+
+.mailbox-topic-full > .topic .topic-info,
+.mailbox-topic-full > .topic .topic-body,
+.mailbox-topic-full > .topic .topic-footer,
+.mailbox-topic-full > .topic.reply .reply-footer { background-color: #fff; border-bottom: 3px solid #bbb; word-wrap: break-word; border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-radius: 4px; }
+.mailbox-topic-full > .topic .topic-info { text-align: center; padding: 10px; word-wrap: break-word; }
+
+.mailbox-topic-full > .topic .topic-body > .topic-text { margin: 10px; }
+.mailbox-topic-full > .topic .topic-footer { padding-top: 10px; padding-bottom: 10px; text-align: right; word-wrap: break-word; }
+.mailbox-topic-full > .topic .topic-footer > .footer-content { margin: 0px 10px; }
+.mailbox-topic-full > .topic .topic-footer > .footer-info { float: left; margin: 0px 10px; margin-top: 5px; }
+.mailbox-topic-full > .topic .topic-footer .btn {  }
+
+.mailbox-topic-full > .topic .topic-info .thumbnail { background-color: #fff; margin: auto; }
+.mailbox-topic-full > .topic .topic-info .topic-p-group { margin-top: 10px; }
+
+.mailbox-topic-full > .topic.reply .topic-info .topic-p-group {  }
+.mailbox-topic-full > .topic.reply .reply-footer { margin: 0px; padding: 5px; margin-top: 10px; text-align: right; }
+.mailbox-topic-full > .topic.reply .reply-footer > .footer-info { float: left; margin-top: 5px; margin-left: 5px; }
+
+.mailbox-global .main-settings .table { font-family: verdana; background: #fff; }
+.mailbox-global .main-settings .table .name { font-weight: bold; color: #555; width: 60%; }
+.mailbox-global .main-settings .table .desc { font-weight: normal; color: #999; font-size: 11px; }
+.mailbox-global .main-settings .table .submits { text-align: right; }
+
+@media (max-width: 480px) {
+	.mailbox-global .mailbox-folders > ul > li { display: block; width: 100%; }
+	.mailbox-global .mailbox-folders > ul > li > .folder > a { font-size: 0.5em; }
+	.mailbox-global .form-actions .btn,
+	.mailbox-global .form-actions select { display: block; }
+	.mailbox-topic-full > .topic .topic-footer .btn { margin-top: 3px; margin-bottom: 3px; display: block; }
+	.mailbox-topic-full > .topic .topic-footer button { width: 100%; }
+	.mailbox-topic-full > .topic .topic-footer > .footer-info { float: none; margin: 0px 10px; margin-bottom: 3px; }
+}
+
+.mailbox-copyright { display: block; width: 54px; height: 55px; background: url("../img/copyright_icon.png") no-repeat; float: right; margin-top: 10px; }

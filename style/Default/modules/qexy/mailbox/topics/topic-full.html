@@ -1,0 +1,53 @@
+<div class="mailbox-topic-full" id="<?php echo $data['ID']; ?>">
+	<div class="topic">
+		<div class="row-fluid">
+			<div class="topic-info span3">
+				<b><a href="#" class="reply-to"><?php echo $data['FROM_LOGIN']; ?></a></b>
+				<a href="<?php echo $data['FROM_LOGIN_URL']; ?>" class="thumbnail">
+					<img src="<?php echo BASE_URL; ?>skin.php?user_id=<?php echo $data['FROM_ID']; ?>&mini=true&refresh=<?php echo mt_rand(1000, 9999); ?>" alt="IMG" />
+				</a>
+				
+				<div class="topic-p-group"><?php echo $data['FROM_GROUP']; ?></div>
+			</div>
+
+			<div class="topic-body span9">
+				<div class="topic-text"><?php echo $data['TEXT']; ?></div>
+			</div>
+		</div>
+
+		<div class="row-fluid">
+			<div class="topic-footer span12">
+				<div class="footer-info">Обновлено: <?php echo $data['DATE_UPDATE']; ?></div>
+				<form class="footer-content" method="POST">
+					<input type="hidden" name="<?php echo $data['API_SECURITY']; ?>" value="<?php echo $data['API_SET']; ?>">
+					<a href="#" class="btn reply-load data-topic" id="<?php echo $data['ID']; ?>">Ответить</a>
+					<button type="submit" name="action" value="close" class="btn close_topic" <?php echo $data['IS_DISABLED']; ?>><?php echo $data['CLOSE_BTN']; ?></button>
+					<a href="#permaLinkMessage" class="btn permaLinkMsg" data-toggle="modal" rel="tooltip" title="Ссылка на сообщение"><i class="icon-share"></i></a>
+				</form>
+			</div>
+		</div>
+
+		<div id="permaLinkMessage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="permaLinkLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="permaLinkLabel">Ссылка на сообщение</h3>
+			</div>
+
+			<div class="modal-body">
+				<p><input class="input-block-level" id="permaLinkInput" type="text" readonly value=""></p>
+			</div>
+
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+			</div>
+		</div>
+	</div>
+
+	<legend>Ответы</legend>
+
+	<?php echo $data['REPLY']; ?>
+
+	<?php echo $data['PAGINATION']; ?>
+
+	<?php echo $data['REPLY_FORM']; ?>
+</div>

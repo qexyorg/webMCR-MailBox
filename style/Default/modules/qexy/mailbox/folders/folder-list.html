@@ -1,0 +1,12 @@
+<div class="mailbox-folders">
+	<ul>
+		<?php echo $data['CONTENT']; ?>
+	</ul>
+	<div class="form-actions">
+		<a href="<?php echo MOD_URL; ?>&do=topics&op=new" class="btn btn-primary"><i class="icon-envelope icon-white"></i> Новое сообщение</a>
+		<a href="<?php echo MOD_URL; ?>&do=folders&op=control" class="btn"><i class="icon-folder-open"></i> Управление папками</a>
+		<?php echo $data['MENU']; ?>
+	</div>
+</div>
+
+<?php echo $data['PAGINATION']; ?>

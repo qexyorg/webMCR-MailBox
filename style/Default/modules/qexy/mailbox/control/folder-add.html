@@ -1,0 +1,29 @@
+<form class="form-horizontal" method="POST">
+	<div class="control-group">
+		<label class="control-label" for="inputTitle">Название</label>
+		<div class="controls">
+			<input type="text" id="inputTitle" class="span8" value="<?php echo $data['TITLE']; ?>" maxlength="32" name="title" placeholder="Название" required>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="inputUniq">Идентификатор</label>
+		<div class="controls">
+			<input type="text" id="inputUniq" class="span8" value="<?php echo $data['UNIQ']; ?>" maxlength="32" name="uniq" placeholder="Уникальный идентификатор" required>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="inputIcon">Иконка</label>
+		<div class="controls">
+			<?php echo $data['ICONS']; ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<button type="submit" name="submit" class="btn"><?php echo $data['BTN']; ?></button>
+		</div>
+	</div>
+	<input type="hidden" name="<?php echo $data['API_SECURITY']; ?>" value="<?php echo $data['API_SET']; ?>">
+</form>

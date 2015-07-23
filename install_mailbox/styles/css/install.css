@@ -1,0 +1,6 @@
+.mailbox-content .mailbox-install { font-family: verdana; font-size: 12px; }
+.mailbox-content .mailbox-install h4 { color: #555; }
+.mailbox-content .mailbox-install .reinst { margin: 10px; }
+.mailbox-content .mailbox-install .ins-submit { text-align: right; margin-top: 20px; }
+.mailbox-content .mailbox-install .ins-menu { width: 459px; height: 199px; border: 2px double #ccc; border-radius: 4px; background: url("../img/menu.png") no-repeat; margin: 10px; }
+.mailbox-content .mailbox-install .mailbox-logo { width: 165px; height: 173px; background: url("../img/logo.png") no-repeat; float: right; }
