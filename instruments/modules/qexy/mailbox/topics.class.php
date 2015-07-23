@@ -364,6 +364,9 @@ class module{
 		$this->title	= 'Создание переписки'; // Set title page
 
 		$data = array(
+			"TO"			=> $this->db->HSC(@$_GET['to']),
+			"TOPIC"			=> $this->db->HSC(@$_GET['topic']),
+			"MESSAGE"		=> $this->db->HSC(@$_GET['msg']),
 			"API_SET"		=> $this->api->csrf_set($api_security),
 			"API_SECURITY"	=> $api_security,
 		);

@@ -4,14 +4,14 @@
 		<div class="control-group">
 			<label class="control-label" for="inputTo">Кому</label>
 			<div class="controls">
-				<input name="login" id="data-get_login" class="span8" type="text" id="inputTo" placeholder="Начните вводить логин" required>
+				<input name="login" id="data-get_login" class="span8" value="<?php echo $data['TO']; ?>" type="text" id="inputTo" placeholder="Начните вводить логин" required>
 			</div>
 		</div>
 
 		<div class="control-group">
 			<label class="control-label" for="inputTopic">Тема</label>
 			<div class="controls">
-				<input name="topic" class="span8" type="text" id="inputTopic" placeholder="Тема переписки" required>
+				<input name="topic" class="span8" type="text" id="inputTopic" value="<?php echo $data['TOPIC']; ?>" placeholder="Тема переписки" required>
 			</div>
 		</div>
 
@@ -19,7 +19,7 @@
 			<label class="control-label" for="inputTopic">Текст сообщения</label>
 			<div class="controls">
 				<?php echo $this->bb_panel(); ?>
-				<textarea name="text" class="bb-textarea span12" rows="10" required placeholder="Текст сообщения"></textarea>
+				<textarea name="text" class="bb-textarea span12" rows="10" required placeholder="Текст сообщения"><?php echo $data['MESSAGE']; ?></textarea>
 			</div>
 		</div>
 
