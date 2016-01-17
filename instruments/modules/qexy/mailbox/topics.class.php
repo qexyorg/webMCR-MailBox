@@ -148,7 +148,6 @@ class module{
 		$gid = intval($ar[$bd_users['group']]);
 
 		if($this->cfg['use_email'] && $gid!=2 && $gid!=4){
-			$query = $this->db->query("SELECT ");
 
 			$subject = '['.$config["s_name"].'] Оповещение о новых сообщениях';
 			$message = '<p>На сайте '.$config["s_name"].' появились новые непрочитанные личные сообщения</p>';
