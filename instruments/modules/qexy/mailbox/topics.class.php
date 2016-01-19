@@ -485,7 +485,7 @@ class module{
 
 		$ids = implode(', ', $ids);
 
-		$query = $this->db->query("SELECT `t`.id
+		$query = $this->db->query("SELECT `l`.id
 									FROM `qx_mb_topics_links` AS `l`
 									INNER JOIN `qx_mb_topics` AS `t`
 										ON `t`.id=`l`.`tid`
