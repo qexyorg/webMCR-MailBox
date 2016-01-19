@@ -143,7 +143,7 @@ class module{
 		if(!$update){ $this->api->notify("Произошла ошибка базы данных topics #".__LINE__, "&do=topics&op=view&tid=$link", "Внимание!", 3); }
 		
 
-		$link = 'http://'.$_SERVER["SERVER_NAME"].BASE_URL.'?mode=mailbox&do=topics&op=view&tid='.$link;
+		$link_url = 'http://'.$_SERVER["SERVER_NAME"].BASE_URL.'?mode=mailbox&do=topics&op=view&tid='.$link;
 
 		$gid = intval($ar[$bd_users['group']]);
 
@@ -152,7 +152,7 @@ class module{
 			$subject = '['.$config["s_name"].'] Оповещение о новых сообщениях';
 			$message = '<p>На сайте '.$config["s_name"].' появились новые непрочитанные личные сообщения</p>';
 			$message .= '<p>Для просмотра, вы можете перейти по ссылке ниже:</p>';
-			$message .= '<p><a href="'.$link.'">'.$link.'</a></p>';
+			$message .= '<p><a href="'.$link_url.'">'.$link_url.'</a></p>';
 			$this->api->email_load($this->cfg['use_email_ssl']);
 
 			$this->api->email($email, $subject, $message);
