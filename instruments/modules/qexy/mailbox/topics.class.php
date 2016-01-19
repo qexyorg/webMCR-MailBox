@@ -95,12 +95,12 @@ class module{
 		$bd_users		= $this->mcfg['bd_users'];
 		$config			= $this->mcfg['config'];
 
-		$query = $this->db->query("SELECT `l`.`id`, `l`.`tid`, `u`.`{$bd_users['group']}`, `u`.`{$bd_users['email']}`
+		$query = $this->db->query("SELECT `l`.`id`, `l`.`tid`, `u`.`{$bd_users['group']}`, `u`.`{$bd_users['email']}`, `lt`.uid
 									FROM `qx_mb_topics_links` AS `l`
 									INNER JOIN `qx_mb_topics` AS `t`
 										ON `t`.`id`=`l`.`tid` AND `t`.`closed`='0'
 									LEFT JOIN `qx_mb_topics_links` AS `lt`
-										ON `l`.`id`='$link' AND `lt`.`uid`!=`l`.`uid`
+										ON `lt`.`tid`=`l`.`tid` AND `lt`.`uid`!=`l`.`uid`
 									LEFT JOIN `{$bd_names['users']}` AS `u`
 										ON `u`.`{$bd_users['id']}`=`lt`.`uid`
 									WHERE `l`.`id`='$link' AND `l`.`uid`='{$this->user->id}'");
@@ -108,6 +108,8 @@ class module{
 		if(!$query || $this->db->num_rows($query)<=0){ $this->api->notify("Доступ запрещен!", "&do=folders", "403", 3); }
 
 		$ar = $this->db->get_row($query);
+		
+		if(is_null($ar['uid'])){ $this->api->notify("Получатель удалил переписку!", "&do=folders", "403", 3); }
 
 		$tid = intval($ar['tid']);
 
