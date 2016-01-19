@@ -457,9 +457,9 @@ class module{
 									FROM `qx_mb_topics_links` AS `l`
 									INNER JOIN `qx_mb_topics` AS `t`
 										ON `t`.`id`=`l`.`tid` AND `t`.`closed`='0'
-									WHERE `l`.tid IN ($ids) AND `l`.`uid`='{$this->user->id}'");
+									WHERE `l`.id IN ($ids) AND `l`.`uid`='{$this->user->id}'");
 
-		if(!$query || $this->db->num_rows($query)<=0){ $this->api->notify("Доступ запрещен!", "403", 3); }
+		if(!$query || $this->db->num_rows($query)<=0){ $this->api->notify("Доступ запрещен!", "", "403", 3); }
 
 		$id_row = array();
 
@@ -491,7 +491,7 @@ class module{
 										ON `t`.id=`l`.`tid`
 									WHERE `l`.id IN ($ids) AND `l`.uid='{$this->user->id}' AND `l`.`fid`!='3'");
 
-		if(!$query || $this->db->num_rows($query)<=0){ $this->api->notify("Доступ запрещен!", "403", 3); }
+		if(!$query || $this->db->num_rows($query)<=0){ $this->api->notify("Доступ запрещен!", "", "403", 3); }
 
 		$id_row = array();
 
