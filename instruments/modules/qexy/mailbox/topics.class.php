@@ -485,28 +485,36 @@ class module{
 
 		$ids = implode(', ', $ids);
 
-		$query = $this->db->query("SELECT `l`.id
+		$query = $this->db->query("SELECT `l`.id, `l`.`fid`
 									FROM `qx_mb_topics_links` AS `l`
 									INNER JOIN `qx_mb_topics` AS `t`
 										ON `t`.id=`l`.`tid`
-									WHERE `l`.id IN ($ids) AND `l`.uid='{$this->user->id}' AND `l`.`fid`!='3'");
+									WHERE `l`.id IN ($ids) AND `l`.uid='{$this->user->id}'");
 
 		if(!$query || $this->db->num_rows($query)<=0){ $this->api->notify("Доступ запрещен!", "", "403", 3); }
 
 		$id_row = array();
 
 		while($ar = $this->db->get_row($query)){
+			$fid = intval($ar['fid']);
 			$id_row[] = intval($ar['id']);
 		}
 
 		$id_row = implode(', ', $id_row);
 
-		$update = $this->db->query("UPDATE `qx_mb_topics_links` SET `fid`='3' WHERE id IN ($id_row)");
-		if(!$update){ $this->api->notify("Произошла ошибка базы данных topics #".__LINE__, "", "Внимание!", 3); }
+		if($fid!=3){
+			$action = $this->db->query("UPDATE `qx_mb_topics_links` SET `fid`='3' WHERE id IN ($id_row)");
+			$msg = 'Переписки успешно перемещены в корзину';
+		}else{
+			$action = $this->db->query("DELETE FROM `qx_mb_topics_links` WHERE id IN ($id_row) AND `fid`='$fid'");
+			$msg = 'Переписки успешно удалены';
+		}
+
+		if(!$action){ $this->api->notify("Произошла ошибка базы данных topics #".__LINE__, "", "Внимание!", 3); }
 		
 		if($this->db->get_affected_rows()<=0){ $this->api->notify("Переписки не были удалены", "", "Внимание!", 4); }
 		
-		$this->api->notify('Переписки успешно перемещены в корзину', "", "Поздравляем!", 1);
+		$this->api->notify($msg, "", "Поздравляем!", 1);
 	}
 
 	private function topic_list(){
