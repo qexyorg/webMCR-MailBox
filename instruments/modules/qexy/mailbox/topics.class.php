@@ -95,7 +95,9 @@ class module{
 		$bd_users		= $this->mcfg['bd_users'];
 		$config			= $this->mcfg['config'];
 
-		$query = $this->db->query("SELECT `l`.`id`, `l`.`tid`, `u`.`{$bd_users['group']}`, `u`.`{$bd_users['email']}`, `lt`.uid
+
+		$query = $this->db->query("SELECT `l`.`id`, `l`.`tid`, `u`.`{$bd_users['group']}`,
+										`u`.`{$bd_users['email']}`, `lt`.uid, `lt`.id AS `lid`
 									FROM `qx_mb_topics_links` AS `l`
 									INNER JOIN `qx_mb_topics` AS `t`
 										ON `t`.`id`=`l`.`tid` AND `t`.`closed`='0'
@@ -112,6 +114,7 @@ class module{
 		if(is_null($ar['uid'])){ $this->api->notify("Получатель удалил переписку!", "&do=folders", "403", 3); }
 
 		$tid = intval($ar['tid']);
+		$lid = intval($ar['lid']);
 
 		$email = $ar[$bd_users['email']];
 
@@ -145,7 +148,7 @@ class module{
 		if(!$update){ $this->api->notify("Произошла ошибка базы данных topics #".__LINE__, "&do=topics&op=view&tid=$link", "Внимание!", 3); }
 		
 
-		$link_url = 'http://'.$_SERVER["SERVER_NAME"].BASE_URL.'?mode=mailbox&do=topics&op=view&tid='.$link;
+		$link = 'http://'.$_SERVER["SERVER_NAME"].BASE_URL.'?mode=mailbox&do=topics&op=view&tid='.$lid;
 
 		$gid = intval($ar[$bd_users['group']]);
 
@@ -404,7 +407,7 @@ class module{
 										ON `uf`.`{$bd_users['id']}`=`lf`.`uid`
 
 									WHERE `l`.`uid`='{$this->user->id}' AND `l`.`fid`='{$this->fid}'
-									ORDER BY `l`.`read` DESC, `l`.`id` DESC
+									ORDER BY `l`.`read` ASC, `l`.`id` DESC
 									LIMIT $start, $end");
 
 		if(!$query || $this->db->num_rows($query)<=0){ return $this->api->sp("topics/topic-none.html"); } // Check returned result
@@ -563,7 +566,7 @@ class module{
 		// Постраничная навигация +
 		$sql			= "SELECT COUNT(*) FROM `qx_mb_topics_links` WHERE `uid`='{$this->user->id}' AND `fid`='{$this->fid}'"; // Set SQL query for pagination function
 
-		$page			= "&do=folders&op=".$h_uniq."&pid="; // Set url for pagination function
+		$page			= "&do=topics&op=folder&fid=".$h_uniq."&pid="; // Set url for pagination function
 
 		$pagination		= $this->api->pagination($this->cfg['rop_topics'], $page, $sql); // Set pagination
 		// Постраничная навигация -
